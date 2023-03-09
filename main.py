@@ -29,7 +29,6 @@ class CoolDownChecker:
 
     def check_gt_cd(self):
         while True:
-            print("hi")
             t_now = time.time()
 
             wait_time = self.default_wait_time
