@@ -21,11 +21,12 @@ class CoolDownChecker:
         thread = threading.Thread(target=self.check_gt_cd)
         thread.start()
 
-        keyboard.add_hotkey(self.hotkey, self.on_gt)
+        keyboard.hook(self.on_gt)
         keyboard.wait()
 
-    def on_gt(self):
-        self.t_last_gt = time.time()
+    def on_gt(self, e):
+        if e.name == self.hotkey and e.event_type == "down":
+            self.t_last_gt = time.time()
 
     def check_gt_cd(self):
         while True:
@@ -41,4 +42,4 @@ class CoolDownChecker:
 
 
 if __name__ == "__main__":
-    CoolDownChecker(gt_hotkey='5', alert_cd=75).run()
+    CoolDownChecker(gt_hotkey='5', alert_cd=5).run()
