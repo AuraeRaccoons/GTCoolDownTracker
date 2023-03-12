@@ -42,4 +42,4 @@ class CoolDownChecker:
 
 
 if __name__ == "__main__":
-    CoolDownChecker(gt_hotkey='5', alert_cd=5).run()
+    CoolDownChecker(gt_hotkey='5', alert_cd=75).run()
